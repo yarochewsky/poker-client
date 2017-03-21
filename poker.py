@@ -1,3 +1,6 @@
+# Deuces Poker Client
+# Daniel Fonseca Yarochewsky, Copyright (c) 2017
+
 from deuces import *
 
 NUM_CARDS_HAND = 2
@@ -11,7 +14,7 @@ PRETTY_SUITS = {
     "c" : u"\u2663".encode('utf-8') # clubs
 }
 
-
+# plays until user stops.
 def main():
     printArt()
     for num in range(0, 3):
