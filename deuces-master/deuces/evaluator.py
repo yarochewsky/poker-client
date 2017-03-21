@@ -2,6 +2,7 @@ import itertools
 from card import Card
 from deck import Deck
 from lookup import LookupTable
+from termcolor import colored
 
 class Evaluator(object):
     """
@@ -179,9 +180,13 @@ class Evaluator(object):
                 print ("=" * line_length) + " HAND OVER " + ("=" * line_length)
                 if len(winners) == 1:
                     print
-                    print "Player %d is the winner with a %s\n" % (winners[0],
-                        self.class_to_string(self.get_rank_class(self.evaluate(hands[winners[0]], board))))
+                    s = ("Player %d is the winner with a %s\n" % (winners[0],
+                        self.class_to_string(self.get_rank_class(self.evaluate(hands[winners[0]], board)))))
+                    s = colored(s, "red")
+                    print s
                 else:
                     print
-                    print "Players %s tied for the win with a %s\n" % (winners,
-                        self.class_to_string(self.get_rank_class(self.evaluate(hands[winners[0]], board))))
+                    s = ("Players %s tied for the win with a %s\n" % (winners,
+                        self.class_to_string(self.get_rank_class(self.evaluate(hands[winners[0]], board)))))
+                    s = colored(s, "red")
+                    print s
